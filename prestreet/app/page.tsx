@@ -1,8 +1,7 @@
-"use client";
-
 import { Card } from "@/components/ui/card";
 import { Newspaper, TrendingUp, Globe2 } from "lucide-react";
 import Link from "next/link";
+import styles from "./page.module.css";
 
 const articles = [
   {
@@ -11,7 +10,8 @@ const articles = [
     originalSource: "Wall Street Journal",
     category: "Technology",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-    summary: "Artificial Intelligence is like a super-smart computer helper that can do amazing things. Companies are using it to create new tools and games!"
+    summary:
+      "Artificial Intelligence is like a super-smart computer helper that can do amazing things. Companies are using it to create new tools and games!",
   },
   {
     id: 2,
@@ -19,7 +19,8 @@ const articles = [
     originalSource: "Bloomberg",
     category: "Environment",
     image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7",
-    summary: "More people are buying cars that run on electricity instead of gas. This helps keep our air clean and saves money!"
+    summary:
+      "More people are buying cars that run on electricity instead of gas. This helps keep our air clean and saves money!",
   },
   {
     id: 3,
@@ -27,18 +28,17 @@ const articles = [
     originalSource: "Business Insider",
     category: "Science",
     image: "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7",
-    summary: "A new rocket company just sent their biggest spacecraft to space! This could mean more exciting space adventures in the future."
-  }
+    summary:
+      "A new rocket company just sent their biggest spacecraft to space! This could mean more exciting space adventures in the future.",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <main className={"min-h-screen bg-gradient-to-b from-blue-50 to-white"}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-blue-600 mb-4">
-            KidsFinanceNews
-          </h1>
+          <h1 className="text-4xl font-bold text-blue-600 mb-4">PreStreet</h1>
           <p className="text-xl text-gray-600">
             Big news made simple for young minds! 🚀
           </p>
@@ -82,7 +82,9 @@ export default function Home() {
                       {article.originalSource}
                     </span>
                   </div>
-                  <h2 className="text-xl font-semibold mb-3">{article.title}</h2>
+                  <h2 className="text-xl font-semibold mb-3">
+                    {article.title}
+                  </h2>
                   <p className="text-gray-600 text-sm line-clamp-3">
                     {article.summary}
                   </p>
