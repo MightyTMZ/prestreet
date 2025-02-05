@@ -8,6 +8,7 @@ export function generateStaticParams() {
 }
 
 export default function ArticlePage({ params }: { params: { id: string } }) {
-  const article = articles[params.id as keyof typeof articles];
+  const articleId = parseInt(params.id, 10);
+  const article = articles[articleId as keyof typeof articles];
   return <ArticleContent article={article} />;
 }

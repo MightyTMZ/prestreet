@@ -1,4 +1,17 @@
-export const articles = {
+interface Article {
+  title: string;
+  originalSource: string;
+  category: string;
+  image: string;
+  summary: string;
+  content: string;
+}
+
+interface Articles {
+  [key: number]: Article;
+}
+
+export const articles: Articles = {
   1: {
     title: "Why Everyone's Talking About AI",
     originalSource: "Wall Street Journal",
