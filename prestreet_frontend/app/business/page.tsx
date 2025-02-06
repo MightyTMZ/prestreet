@@ -1,9 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { Building2, PiggyBank, ShoppingBag, Newspaper, Home, TrendingUp, Coins, DollarSign } from "lucide-react";
+import {
+  Building2,
+  PiggyBank,
+  ShoppingBag,
+  Newspaper,
+  Home,
+  TrendingUp,
+  Coins,
+  DollarSign,
+} from "lucide-react";
 import { ArticleCard } from "@/components/article-card";
 import { CategoryHeader } from "@/components/category-header";
+// import openai_superbowl from "./openai_super_bowl.avif"
 
 const businessTags = [
   { name: "Money World", color: "#58CC02" },
@@ -20,7 +30,8 @@ const articles = [
   {
     id: 1,
     title: "Why Do Prices Go Up and Down?",
-    summary: "Learn about how prices change and why some things cost more or less at different times.",
+    summary:
+      "Learn about how prices change and why some things cost more or less at different times.",
     image: "https://images.unsplash.com/photo-1554260570-e9689a3418b8",
     category: "Business",
     tag: "Money World",
@@ -28,15 +39,28 @@ const articles = [
     readingTime: "5 min read",
     difficulty: "Easy" as const,
   },
+  {
+    id: 2,
+    title: "OpenAI at the Superbowl",
+    summary:
+      "OpenAI, the company behind ChatGPT, is planning to air its first TV commercial during the Super Bowl this Sunday.",
+    image: "/openai_super_bowl.avif",
+    category: "Business",
+    tag: "Big News",
+    originalSource: "Wall Street Journal",
+    readingTime: "5 min read",
+    difficulty: "Medium" as const,
+  },
   // Add more articles...
 ];
 
 export default function BusinessPage() {
   const [selectedTag, setSelectedTag] = useState("all");
 
-  const filteredArticles = selectedTag === "all"
-    ? articles
-    : articles.filter(article => article.tag === selectedTag);
+  const filteredArticles =
+    selectedTag === "all"
+      ? articles
+      : articles.filter((article) => article.tag === selectedTag);
 
   return (
     <main className="min-h-screen bg-[#FFF5F0]">
