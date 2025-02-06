@@ -1,27 +1,17 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Poppins, Raleway } from "next/font/google";
+import './globals.css';
+import type { Metadata } from 'next';
+import { Fredoka } from 'next/font/google';
+import { Navigation } from '@/components/navigation';
+import { AnimatedBackground } from '@/components/animated-background';
 
-// const inter = Inter({ subsets: ["latin"] });
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-poppins",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-const raleway = Raleway({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-raleway",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const fredoka = Fredoka({ 
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "PreStreet - Big News Made Simple",
-  description:
-    "A kid-friendly platform for reading simplified versions of business and financial news",
+  title: 'PreStreet - Business News for Kids',
+  description: 'Making business and finance news fun and easy to understand for young minds',
 };
 
 export default function RootLayout({
@@ -31,7 +21,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${raleway.variable} ${poppins.className}`}>{children}</body>
+      <body className={`${fredoka.className} bg-[#FFF5F0]`}>
+        <Navigation />
+        <AnimatedBackground />
+        <div className="relative">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

@@ -1,96 +1,174 @@
-import { Card } from "@/components/ui/card";
-import { Newspaper, TrendingUp, Globe2 } from "lucide-react";
-import Link from "next/link";
-import styles from "./page.module.css";
+"use client";
 
-const articles = [
+import { Card } from "@/components/ui/card";
+import { Building2, Cpu, TrendingUp } from "lucide-react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Logo } from "@/components/logo";
+import { Mascot } from "@/components/mascot";
+import { motion } from "framer-motion";
+
+const featuredArticles = [
   {
     id: 1,
     title: "Why Everyone's Talking About AI",
     originalSource: "Wall Street Journal",
-    category: "Technology",
+    category: "Tech",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-    summary:
-      "Artificial Intelligence is like a super-smart computer helper that can do amazing things. Companies are using it to create new tools and games!",
+    summary: "Artificial Intelligence is like a super-smart computer helper that can do amazing things. Companies are using it to create new tools and games!",
+    publishedAt: "2025-03-18"
   },
   {
     id: 2,
     title: "How Electric Cars Are Changing the World",
     originalSource: "Bloomberg",
-    category: "Environment",
+    category: "Business",
     image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7",
-    summary:
-      "More people are buying cars that run on electricity instead of gas. This helps keep our air clean and saves money!",
+    summary: "More people are buying cars that run on electricity instead of gas. This helps keep our air clean and saves money!",
+    publishedAt: "2025-03-15"
   },
   {
     id: 3,
     title: "Space Company Makes History",
     originalSource: "Business Insider",
-    category: "Science",
+    category: "Tech",
     image: "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7",
-    summary:
-      "A new rocket company just sent their biggest spacecraft to space! This could mean more exciting space adventures in the future.",
+    summary: "A new rocket company just sent their biggest spacecraft to space! This could mean more exciting space adventures in the future.",
+    publishedAt: "2025-03-10"
+  }
+];
+
+const categories = [
+  {
+    name: "Business News",
+    description: "Learn about companies and how they work",
+    icon: Building2,
+    color: "text-[#58CC02]", // Duolingo green
+  },
+  {
+    name: "Tech World",
+    description: "Discover cool new gadgets and inventions",
+    icon: Cpu,
+    color: "text-[#CE82FF]", // Duolingo purple
+  },
+  {
+    name: "Money & Markets",
+    description: "Understanding how money works",
+    icon: TrendingUp,
+    color: "text-[#FF9600]", // Duolingo orange
   },
 ];
 
+function isNew(publishedAt: string): boolean {
+  const publishDate = new Date(publishedAt);
+  const now = new Date();
+  const diffTime = Math.abs(now.getTime() - publishDate.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays <= 7;
+}
+
 export default function Home() {
   return (
-    <main className={"min-h-screen bg-gradient-to-b from-blue-50 to-white"}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-blue-600 mb-4">PreStreet</h1>
-          <p className="text-xl text-gray-600">
-            Big news made simple for young minds! 🚀
-          </p>
+    <main className="min-h-screen">
+      <div className="relative overflow-hidden bg-[#1CB0F6] py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center text-white relative z-10">
+            <motion.div 
+              className="flex items-center justify-center mb-8"
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Logo size="lg" className="mr-4" />
+              <Mascot size="lg" expression="excited" />
+            </motion.div>
+            <motion.p 
+              className="text-2xl"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+            >
+              Learn about money and business! 🚀
+            </motion.p>
+          </div>
         </div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600')] opacity-10" />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <Newspaper className="w-12 h-12 mx-auto mb-4 text-blue-500" />
-            <h3 className="text-lg font-semibold mb-2">Easy to Read</h3>
-            <p className="text-gray-600">Complex news explained simply</p>
-          </Card>
-          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <TrendingUp className="w-12 h-12 mx-auto mb-4 text-green-500" />
-            <h3 className="text-lg font-semibold mb-2">Learn Finance</h3>
-            <p className="text-gray-600">Understand money and business</p>
-          </Card>
-          <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-            <Globe2 className="w-12 h-12 mx-auto mb-4 text-purple-500" />
-            <h3 className="text-lg font-semibold mb-2">World News</h3>
-            <p className="text-gray-600">Stay updated on global events</p>
-          </Card>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article) => (
-            <Link href={`/article/${article.id}`} key={article.id}>
-              <Card className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer h-full">
-                <div className="aspect-w-16 aspect-h-9">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="object-cover w-full h-48"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-blue-600">
-                      {article.category}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {article.originalSource}
-                    </span>
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {categories.map((category, index) => {
+            const Icon = category.icon;
+            return (
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+              >
+                <Card 
+                  className="p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 rounded-3xl border-2 border-[#E5E5E5] hover:border-[#1CB0F6] bg-white/90 backdrop-blur-sm"
+                >
+                  <div className={cn(
+                    "w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center",
+                    "bg-white shadow-lg",
+                  )}>
+                    <Icon className={cn("w-10 h-10", category.color)} />
                   </div>
-                  <h2 className="text-xl font-semibold mb-3">
-                    {article.title}
-                  </h2>
-                  <p className="text-gray-600 text-sm line-clamp-3">
-                    {article.summary}
-                  </p>
-                </div>
-              </Card>
-            </Link>
+                  <h3 className="text-2xl font-bold mb-3">{category.name}</h3>
+                  <p className="text-gray-600 text-lg">{category.description}</p>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <h2 className="text-3xl font-bold mb-8 text-center">Today's Fun Stories! 📚</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredArticles.map((article, index) => (
+            <motion.div
+              key={article.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+            >
+              <Link href={`/article/${article.id}`}>
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full rounded-3xl border-2 border-[#E5E5E5] hover:border-[#1CB0F6] bg-white/90 backdrop-blur-sm">
+                  <div className="relative">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="object-cover w-full h-48 rounded-t-3xl"
+                    />
+                    {isNew(article.publishedAt) && (
+                      <div className="absolute top-4 left-4">
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="bg-[#FF4B4B] text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg"
+                        >
+                          NEW! 🎉
+                        </motion.div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-lg font-bold text-[#1CB0F6] bg-[#DDF4FF] px-4 py-1 rounded-full">
+                        {article.category}
+                      </span>
+                      <span className="text-sm text-gray-500">
+                        {article.originalSource}
+                      </span>
+                    </div>
+                    <h2 className="text-2xl font-bold mb-3">{article.title}</h2>
+                    <p className="text-gray-600 text-lg line-clamp-3">
+                      {article.summary}
+                    </p>
+                  </div>
+                </Card>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

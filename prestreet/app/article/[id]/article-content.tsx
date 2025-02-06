@@ -32,7 +32,7 @@ export default function ArticleContent({ article }: { article: Article | undefin
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <main className="min-h-screen from-blue-50 to-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Link href="/">
           <Button variant="ghost" className="mb-8">
