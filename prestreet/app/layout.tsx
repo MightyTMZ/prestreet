@@ -1,17 +1,18 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Fredoka } from 'next/font/google';
-import { Navigation } from '@/components/navigation';
-import { AnimatedBackground } from '@/components/animated-background';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Fredoka } from "next/font/google";
+import { Navigation } from "@/components/navigation";
+import { AnimatedBackground } from "@/components/animated-background";
 
-const fredoka = Fredoka({ 
-  subsets: ['latin'],
-  display: 'swap',
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: 'PreStreet - Business News for Kids',
-  description: 'Making business and finance news fun and easy to understand for young minds',
+  title: "PreStreet - Business News for Kids",
+  description:
+    "Making business and finance news fun and easy to understand for young minds",
 };
 
 export default function RootLayout({
@@ -22,11 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fredoka.className} bg-[#FFF5F0]`}>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+
         <Navigation />
         <AnimatedBackground />
-        <div className="relative">
-          {children}
-        </div>
+        <div className="relative">{children}</div>
       </body>
     </html>
   );

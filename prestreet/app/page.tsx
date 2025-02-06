@@ -15,8 +15,9 @@ const featuredArticles = [
     originalSource: "Wall Street Journal",
     category: "Tech",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-    summary: "Artificial Intelligence is like a super-smart computer helper that can do amazing things. Companies are using it to create new tools and games!",
-    publishedAt: "2025-03-18"
+    summary:
+      "Artificial Intelligence is like a super-smart computer helper that can do amazing things. Companies are using it to create new tools and games!",
+    publishedAt: "2025-02-05",
   },
   {
     id: 2,
@@ -24,8 +25,9 @@ const featuredArticles = [
     originalSource: "Bloomberg",
     category: "Business",
     image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7",
-    summary: "More people are buying cars that run on electricity instead of gas. This helps keep our air clean and saves money!",
-    publishedAt: "2025-03-15"
+    summary:
+      "More people are buying cars that run on electricity instead of gas. This helps keep our air clean and saves money!",
+    publishedAt: "2025-02-05",
   },
   {
     id: 3,
@@ -33,9 +35,10 @@ const featuredArticles = [
     originalSource: "Business Insider",
     category: "Tech",
     image: "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7",
-    summary: "A new rocket company just sent their biggest spacecraft to space! This could mean more exciting space adventures in the future.",
-    publishedAt: "2025-03-10"
-  }
+    summary:
+      "A new rocket company just sent their biggest spacecraft to space! This could mean more exciting space adventures in the future.",
+    publishedAt: "2025-02-05",
+  },
 ];
 
 const categories = [
@@ -73,22 +76,23 @@ export default function Home() {
       <div className="relative overflow-hidden bg-[#1CB0F6] py-16">
         <div className="container mx-auto px-4">
           <div className="text-center text-white relative z-10">
-            <motion.div 
+            <motion.div
               className="flex items-center justify-center mb-8"
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <Logo size="lg" className="mr-4" />
+              {/*              <Logo size="lg" className="mr-4" />
+               */}{" "}
               <Mascot size="lg" expression="excited" />
             </motion.div>
-            <motion.p 
+            <motion.p
               className="text-2xl"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              Learn about money and business! 🚀
+              Where Big Ideas Become Child's Play
             </motion.p>
           </div>
         </div>
@@ -106,24 +110,28 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.2 }}
               >
-                <Card 
-                  className="p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 rounded-3xl border-2 border-[#E5E5E5] hover:border-[#1CB0F6] bg-white/90 backdrop-blur-sm"
-                >
-                  <div className={cn(
-                    "w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center",
-                    "bg-white shadow-lg",
-                  )}>
+                <Card className="p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 rounded-3xl border-2 border-[#E5E5E5] hover:border-[#1CB0F6] bg-white/90 backdrop-blur-sm">
+                  <div
+                    className={cn(
+                      "w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center",
+                      "bg-white shadow-lg"
+                    )}
+                  >
                     <Icon className={cn("w-10 h-10", category.color)} />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">{category.name}</h3>
-                  <p className="text-gray-600 text-lg">{category.description}</p>
+                  <p className="text-gray-600 text-lg">
+                    {category.description}
+                  </p>
                 </Card>
               </motion.div>
             );
           })}
         </div>
 
-        <h2 className="text-3xl font-bold mb-8 text-center">Today's Fun Stories! 📚</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Today's Fun Stories! 📚
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredArticles.map((article, index) => (
             <motion.div

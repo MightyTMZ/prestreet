@@ -14,7 +14,7 @@ const navigation = [
   { name: "Tech", href: "/tech", icon: Cpu },
   { name: "Markets", href: "/markets", icon: TrendingUp },
   { name: "Politics", href: "/politics", icon: Vote },
-  { name: "Money", href: "/finance", icon: Wallet },
+  { name: "Money", href: "/money", icon: Wallet },
 ];
 
 export function Navigation() {
