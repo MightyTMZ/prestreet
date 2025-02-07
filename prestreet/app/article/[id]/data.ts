@@ -13,37 +13,27 @@ interface Articles {
 
 export const articles: Articles = {
   1: {
-    title: "Why Everyone's Talking About AI",
+    title: "OpenAI at the Superbowl",
     originalSource: "Wall Street Journal",
     category: "Technology",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-    summary: "Artificial Intelligence is like a super-smart computer helper that can do amazing things. Companies are using it to create new tools and games!",
+    image: "/openai_super_bowl.avif",
+    summary: "OpenAI will be on a commercial at the upcoming Super Bowl",
     content: `
-      Imagine having a super-smart friend who can help you with homework, draw pictures, and even write stories. That's what AI (Artificial Intelligence) is like!
+      
+      What is happening:
 
-      Big companies like Google, Microsoft, and Apple are creating AI tools that can:
-      • Help doctors find better ways to treat sick people
-      • Make video games more fun and exciting
-      • Help cars drive themselves safely
-      • Create amazing art and music
+      OpenAI, the company behind ChatGPT, is planning to air its first TV commercial during the Super Bowl this Sunday. Even though OpenAI became super popular after launching ChatGPT in 2022, it hasn’t spent much money on ads until now. The Super Bowl ad is a big deal because it’s part of a race to get more people to use their AI technology. Other big companies like Google, Microsoft, and Amazon are also trying to win over users with their own AI tools, 
+      like Google’s Gemini and Microsoft’s Copilot.
+      
 
-      Why is this important?
-      Just like how smartphones changed how we live, AI is going to make many things easier and more fun. It might even help solve big problems like climate change!
+      Selling AI to everyone isn’t easy because some people are scared of it. 
+      They worry AI might be dangerous or take over the world. But as people learn 
+      more about how AI can help, like curing diseases or making life easier, they’re 
+      starting to feel better about it. OpenAI is trying to get more people excited 
+      about AI by hiring a marketing expert, Kate Rouch, who helped make Coinbase 
+      (a cryptocurrency company) famous with cool ads. Now, OpenAI is stepping up 
+      its game to show everyone how awesome AI can be!
 
-      Fun Facts:
-      • AI can learn from mistakes, just like humans
-      • Some AI can beat the best chess players in the world
-      • AI helps recommend videos you might like on YouTube
-
-      Words to Learn:
-      • Algorithm: A set of steps that computers follow to solve problems
-      • Machine Learning: How computers learn from examples, like how you learn from practice
-      • Robot: A machine that can do tasks by itself
-
-      Think About:
-      • What would you want an AI helper to do for you?
-      • How could AI make school more fun?
-      • What problems would you want AI to solve?
     `
   },
   2: {
