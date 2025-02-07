@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Fredoka } from "next/font/google";
 import { Navigation } from "@/components/navigation";
 import { AnimatedBackground } from "@/components/animated-background";
+import { Analytics } from "@vercel/analytics/react";
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
 
         <Navigation />
         <AnimatedBackground />
+        <Analytics />
         <div className="relative">{children}</div>
       </body>
     </html>
