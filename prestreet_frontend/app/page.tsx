@@ -11,33 +11,46 @@ import { motion } from "framer-motion";
 const featuredArticles = [
   {
     id: 1,
+    title: "OpenAI at the Superbowl",
+    originalSource: "Wall Street Journal",
+    category: "Business",
+    image: "/openai_super_bowl.avif",
+
+    summary:
+      "OpenAI, the company behind ChatGPT, is planning to air its first TV commercial during the Super Bowl this Sunday.",
+    tag: "Big News",
+    publishedAt: "2025-02-05",
+    difficulty: "Medium" as const,
+  },
+  {
+    id: 2,
     title: "Why Everyone's Talking About AI",
     originalSource: "Wall Street Journal",
     category: "Tech",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
     summary:
       "Artificial Intelligence is like a super-smart computer helper that can do amazing things. Companies are using it to create new tools and games!",
-    publishedAt: "2025-02-05",
+    publishedAt: "2025-01-05",
   },
   {
-    id: 2,
+    id: 3,
     title: "How Electric Cars Are Changing the World",
     originalSource: "Bloomberg",
     category: "Business",
     image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7",
     summary:
       "More people are buying cars that run on electricity instead of gas. This helps keep our air clean and saves money!",
-    publishedAt: "2025-02-05",
+    publishedAt: "2025-01-19",
   },
   {
-    id: 3,
+    id: 4,
     title: "Space Company Makes History",
     originalSource: "Business Insider",
     category: "Tech",
     image: "https://images.unsplash.com/photo-1516849841032-87cbac4d88f7",
     summary:
       "A new rocket company just sent their biggest spacecraft to space! This could mean more exciting space adventures in the future.",
-    publishedAt: "2025-02-05",
+    publishedAt: "2024-12-01",
   },
 ];
 

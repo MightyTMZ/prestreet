@@ -4,6 +4,7 @@ export interface Article {
   summary: string;
   image: string;
   category: string;
+  originalSourceURL?: string; // for original source
   tag: string;
   originalSource: string;
   readingTime: string;
