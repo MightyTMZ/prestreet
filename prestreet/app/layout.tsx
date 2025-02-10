@@ -14,6 +14,16 @@ export const metadata: Metadata = {
   title: "PreStreet - Business News for Kids",
   description:
     "Making business and finance news fun and easy to understand for young minds",
+  keywords: [
+    "kids finance",
+    "business for children",
+    "money education",
+    "financial literacy",
+    "kids business news",
+    "learn about money",
+    "kids investing",
+    "financial education",
+  ],
 };
 
 export default function RootLayout({
